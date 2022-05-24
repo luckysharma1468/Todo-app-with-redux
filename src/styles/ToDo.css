@@ -1,3 +1,13 @@
+@media (max-width: 400px) {
+  .card1 {
+    margin-left: 40px !important;
+  }
+  
+  .card2 {
+    margin-left: 40px !important;
+  }
+}
+
 .todo {
   height: 230px;
   width: 230px;
@@ -6,4 +16,16 @@
 .completed-tasks {
   height: 230px;
   width: 230px;
+}
+
+.Button1 {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.Button2 {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }

@@ -59,10 +59,10 @@ const ToDo = () => {
         spacing={2}
         mx={2}
         my={2}
+        
         justifyContent="center"
-        className="cards"
       >
-        <Grid item xs={12} sm="auto">
+        <Grid item xs={12} sm="auto" className="card1" >
           <Card variant="outlined" sx={{
             backgroundColor: "orange",
             color: "white"
@@ -76,7 +76,7 @@ const ToDo = () => {
             />
           </Card>
         </Grid>
-        <Grid item xs={12} sm="auto">
+        <Grid item xs={12} sm="auto" className="card2">
           <Card variant="outlined" sx={{
             backgroundColor: "brown",
             color: "white"
@@ -95,7 +95,7 @@ const ToDo = () => {
         direction={{ xs: "column", sm: "row" }}
         justifyContent="center"
       >
-        <Grid item>
+        <Grid item className="Button1">
           <Button
             variant="contained"
             color="secondary"
@@ -104,7 +104,7 @@ const ToDo = () => {
             Mark Completed
           </Button>
         </Grid>
-        <Grid item>
+        <Grid item className="Button2">
           <Button
             variant="contained"
             color="success"
