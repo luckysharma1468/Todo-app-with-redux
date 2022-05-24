@@ -44,7 +44,13 @@ export const taskSlice = createSlice({
 
     // For a group action - Put all selected tasks in the completed Group
     selectedTasks: (state, action) => {
-      state.completeGroup = [...state.completeGroup, action.payload];
+        state.completeGroup = [...state.completeGroup, action.payload];
+    },
+
+    // when a item is unchecked so remove that item from the checked group
+    removeFromSelectedTasks: (state, action) => {
+       const newCompleteGroup = state.completeGroup.filter(task => task.id === action.payload);
+       state.completeGroup = [...newCompleteGroup];
     },
 
     // Mark all selected item as completed - Group Action
@@ -74,7 +80,8 @@ export const {
   setTaskAsCompleted,
   selectedTasks,
   setGroupTasksAsCompleted,
-  clearAllTasks
+  clearAllTasks,
+  removeFromSelectedTasks
 } = taskSlice.actions;
 
 export default taskSlice.reducer;

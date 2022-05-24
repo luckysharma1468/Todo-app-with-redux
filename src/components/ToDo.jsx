@@ -9,6 +9,7 @@ import {
   selectedTasks,
   setGroupTasksAsCompleted,
   clearAllTasks,
+  removeFromSelectedTasks,
 } from "../reducer";
 import Heading from "./Heading";
 import AddTask from "./AddTask";
@@ -19,6 +20,7 @@ import "../styles/ToDo.css";
 const ToDo = () => {
   const tasks = useSelector((state) => state.task.tasks);
   const completedTasks = useSelector((state) => state.task.completedTasks);
+  const checkedGroup = useSelector((state) => state.task.completeGroup);
 
   const dispatch = useDispatch();
 
@@ -40,7 +42,12 @@ const ToDo = () => {
   };
 
   const markGroupChecked = (checkedId) => {
-    dispatch(selectedTasks(checkedId));
+    if(checkedGroup.includes(checkedId)){
+      dispatch(removeFromSelectedTasks(checkedId));
+    }else{
+      dispatch(selectedTasks(checkedId));
+    }
+    
   };
 
   return (
@@ -87,7 +94,6 @@ const ToDo = () => {
         spacing={2}
         direction={{ xs: "column", sm: "row" }}
         justifyContent="center"
-        className="final-buttons"
       >
         <Grid item>
           <Button
